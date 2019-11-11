@@ -11,11 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-    return view('home');
-});
+Route::get('/', 'HomeController@showHome');
+Route::get('/admin', 'AdminController@showAdminLogin');
 
-Route::get('/admin', function () {
-    return view('admin');
-});
+
+// Route::get('/', function () {
+//     // return view('welcome');
+//     return view('adminLogin');
+// });
+
+// Route::get('/admin', function () {
+//     return view('adminLogin');
+// });
