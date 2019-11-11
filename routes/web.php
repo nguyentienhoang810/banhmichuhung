@@ -12,5 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return view('trangchu');
+});
+
+Route::get('/admin', function () {
+    // return view('welcome');
+    return view('admin');
 });
