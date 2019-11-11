@@ -13,10 +13,9 @@
 
 Route::get('/', function () {
     // return view('welcome');
-    return view('trangchu');
+    return view('home');
 });
 
 Route::get('/admin', function () {
-    // return view('welcome');
     return view('admin');
 });
