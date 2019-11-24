@@ -64,8 +64,18 @@ FOOD SECTION
 }
 
 /* ============================================================
-SECTION 3
+FOOTER
 ============================================================ */
-.section3 {
+.footer {
+    height: 400px;
+    background-color: rgb(51, 46, 46);
+}
 
+.footer-logo{
+    width: 200px;
+    margin-top: 100px;
+}
+
+.author{
+    color: white;
 }

@@ -24,100 +24,100 @@
                 <div class="row food-group">
                     {{-- banh mi --}}
                     <div class="col-md-4 col-sm-6 col-12">
-                        <div class="card food-product mb-3">
-                            <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Product</h5>
-                                <a href="#" class="btn btn-primary">On Developing</a>
+                            <div class="card food-product mb-3">
+                                <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Product</h5>
+                                    <a href="#" class="btn btn-primary">On Developing</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-12">
-                        <div class="card food-product mb-3">
-                            <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Product</h5>
-                                <a href="#" class="btn btn-primary">On Developing</a>
+                        <div class="col-md-4 col-sm-6 col-12">
+                            <div class="card food-product mb-3">
+                                <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Product</h5>
+                                    <a href="#" class="btn btn-primary">On Developing</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-12">
-                        <div class="card food-product mb-3">
-                            <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Product</h5>
-                                <a href="#" class="btn btn-primary">On Developing</a>
+                        <div class="col-md-4 col-sm-6 col-12">
+                            <div class="card food-product mb-3">
+                                <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Product</h5>
+                                    <a href="#" class="btn btn-primary">On Developing</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    {{-- end banh mi --}}
-
-                    {{-- drink --}}
-                    <div class="col-md-4 col-sm-6 col-12">
-                        <div class="card food-product mb-3">
-                            <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Product</h5>
-                                <a href="#" class="btn btn-primary">On Developing</a>
+                        {{-- end banh mi --}}
+    
+                        {{-- drink --}}
+                        <div class="col-md-4 col-sm-6 col-12">
+                            <div class="card food-product mb-3">
+                                <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Product</h5>
+                                    <a href="#" class="btn btn-primary">On Developing</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-12">
-                        <div class="card food-product mb-3">
-                            <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Product</h5>
-                                <a href="#" class="btn btn-primary">On Developing</a>
+                        <div class="col-md-4 col-sm-6 col-12">
+                            <div class="card food-product mb-3">
+                                <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Product</h5>
+                                    <a href="#" class="btn btn-primary">On Developing</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-12">
-                        <div class="card food-product mb-3">
-                            <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Product</h5>
-                                <a href="#" class="btn btn-primary">On Developing</a>
+                        <div class="col-md-4 col-sm-6 col-12">
+                            <div class="card food-product mb-3">
+                                <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Product</h5>
+                                    <a href="#" class="btn btn-primary">On Developing</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-12">
-                        <div class="card food-product mb-3">
-                            <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Product</h5>
-                                <a href="#" class="btn btn-primary">On Developing</a>
+                        <div class="col-md-4 col-sm-6 col-12">
+                            <div class="card food-product mb-3">
+                                <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Product</h5>
+                                    <a href="#" class="btn btn-primary">On Developing</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-12">
-                        <div class="card food-product mb-3">
-                            <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Product</h5>
-                                <a href="#" class="btn btn-primary">On Developing</a>
+                        <div class="col-md-4 col-sm-6 col-12">
+                            <div class="card food-product mb-3">
+                                <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Product</h5>
+                                    <a href="#" class="btn btn-primary">On Developing</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-12">
-                        <div class="card food-product mb-3">
-                            <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Product</h5>
-                                <a href="#" class="btn btn-primary">On Developing</a>
+                        <div class="col-md-4 col-sm-6 col-12">
+                            <div class="card food-product mb-3">
+                                <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Product</h5>
+                                    <a href="#" class="btn btn-primary">On Developing</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                
-                
-                
-
-            </div>
+                        {{-- end drink list --}}
+                </div>{{-- end food-group --}}
+            </div>{{-- end food container --}}
         </div>
 
-        {{-- <div class="row section3">
-            <h1>WELCOME TO BANH MI CHU HUNG</h1>
-        </div> --}}
-        
+        <div class="row footer">
+            <div class="container">
+                <img src="public/images/logo.jpg" alt="logo-banhmichuhung" class="footer-logo">
+            </div>
+        </div>
+        {{-- end footer --}}
     </div>
 
 </body>
