@@ -11,12 +11,6 @@ COMMON
     height: 600px;
 }
 
-.order-btn {
-    color: white;
-    background-color: orange;
-    padding: 15px 30px;
-}
-
 /* ============================================================
 HEADLINE SECTION
 ============================================================ */
@@ -59,6 +53,14 @@ FOOD SECTION
 
 .food-product{
     margin: 20px;
+}
+
+.btn{
+    background-color: lightgray;
+    border-color: lightgray;
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
 }
 
 /* ============================================================

@@ -28,7 +28,7 @@
                             <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">Product</h5>
-                                <a href="#" class="btn btn-primary">Order</a>
+                                <a href="#" class="btn btn-primary">On Developing</a>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                             <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">Product</h5>
-                                <a href="#" class="btn btn-primary">Order</a>
+                                <a href="#" class="btn btn-primary">On Developing</a>
                             </div>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                             <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">Product</h5>
-                                <a href="#" class="btn btn-primary">Order</a>
+                                <a href="#" class="btn btn-primary">On Developing</a>
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                             <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">Product</h5>
-                                <a href="#" class="btn btn-primary">Order</a>
+                                <a href="#" class="btn btn-primary">On Developing</a>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                             <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">Product</h5>
-                                <a href="#" class="btn btn-primary">Order</a>
+                                <a href="#" class="btn btn-primary">On Developing</a>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                             <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">Product</h5>
-                                <a href="#" class="btn btn-primary">Order</a>
+                                <a href="#" class="btn btn-primary">On Developing</a>
                             </div>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
                             <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">Product</h5>
-                                <a href="#" class="btn btn-primary">Order</a>
+                                <a href="#" class="btn btn-primary">On Developing</a>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                             <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">Product</h5>
-                                <a href="#" class="btn btn-primary">Order</a>
+                                <a href="#" class="btn btn-primary">On Developing</a>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                             <img class="card-img-top" src="http://via.placeholder.com/280x280" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">Product</h5>
-                                <a href="#" class="btn btn-primary">Order</a>
+                                <a href="#" class="btn btn-primary">On Developing</a>
                             </div>
                         </div>
                     </div>
