@@ -7,15 +7,24 @@ COMMON
     box-sizing: border-box;
 }
 
-.section1, .section3, .section2 {
+.headline-section {
     height: 600px;
 }
 
+.order-btn {
+    color: white;
+    background-color: orange;
+    padding: 15px 30px;
+}
+
 /* ============================================================
-SECTION 1
+HEADLINE SECTION
 ============================================================ */
-.section1 {
-    background: rgba(14, 14, 13, 0.8);
+.headline-section {
+    background-image: url("../images/background/background-yellow.jpg");
+    background-size: cover;
+    background-position: center;
+    background-position: fixed;
 }
 .icon {
     color: rgb(250, 215, 73);
@@ -33,12 +42,24 @@ SECTION 1
 
 
 /* ============================================================
-SECTION 2
+FOOD SECTION
 ============================================================ */
-.section2 {
-    background: rgb(250, 215, 73);
+.food-section {
+    background-image: linear-gradient(45deg, rgba(54, 59, 54, 0.8) 55%, rgba(54, 59, 54, 0.85)), url("../images/background/tile-background.png");
+    /* background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; */
 }
 
+.food-group{
+    padding-top: 30px;
+}
+
+.food-product{
+    margin: 20px;
+}
 
 /* ============================================================
 SECTION 3
