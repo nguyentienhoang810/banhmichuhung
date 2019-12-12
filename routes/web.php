@@ -34,3 +34,16 @@ Route::get('/checkSession', function () {
 Route::get('/deleteSession', function () {
     session()->forget('name');
 });
+
+Route::get('/deleteAllSession', function () {
+    session()->flush();
+});
+
+//Middleware
+Route::get('/start', function () {
+    return 'start';
+})->middleware('SampleMiddleware');
+
+Route::get('/finish', function () {
+    return 'finish';
+});
