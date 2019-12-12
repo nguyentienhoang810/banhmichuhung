@@ -29,6 +29,11 @@
 						Login
 					</span>
 
+					<strong>{{$errors}}</strong>
+					@foreach ($errors->all() as $error)
+					<strong>{{$error}}</strong>
+					@endforeach
+
 					
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
 					<input class="input100" value="{{old('username')}}" type="text" name="username" placeholder="Username">

@@ -13,7 +13,7 @@ class AdminLoginRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class AdminLoginRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'username'=>'required|email',
+            'pass'=>'required|min:3'
+        ];
+    }
+
+    public function messages() {
+        return [
+            'username.required'=>'Phải điền username',
+            'username.email'=>'Không đúng định dạng email',
+            'pass.required'=>'Phải điền email',
+            'pass.min'=>'Password phải nhiều hơn 3 ký tự'
         ];
     }
 }
