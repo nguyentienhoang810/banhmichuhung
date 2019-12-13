@@ -86,9 +86,9 @@ Route::group(['prefix' => 'schema'], function () {
 
     //Xoá cột
     Route::get('drop-col', function () {
-        if (Schema::hasColumn('SampleUser', 'new_column')) {
-            Schema::table('SampleUser', function ($table) {
-                $table->dropColumn('new_column');
+        if (Schema::hasColumn('sampleuser', 'new_col')) {
+            Schema::table('sampleuser', function ($table) {
+                $table->dropColumn('new_col');
             });
         }
     });
@@ -108,5 +108,21 @@ Route::group(['prefix' => 'schema'], function () {
             //Có thể xoá user có reference đến info chứa users_id
             $table->foreign('users_id')->references('id')->on('SampleUser')->onDelete('cascade');
         });
+    });
+});
+
+//Thao tác với dữ liệu trong database
+Route::group(['prefix' => 'query'], function () {
+    Route::get('insert-data', function () {
+        DB::table('sampleuser')->insert(['email'=>'admin@mail.com', 'password'=>'pass1', 'level'=>1]);
+    });
+    Route::get('update', function () {
+        DB::table('sampleuser')->where('id', '=', 1)->update(['email'=>'admin@adminmail.com', 'password'=>'pass1', 'level'=>1]);
+
+        //Thêm điều kiện
+        // DB::table('sampleuser')->where('id', '>', 1)->update(['email'=>'admin@adminmail.com', 'password'=>'pass1', 'level'=>1]);
+    });
+    Route::get('delete', function () {
+        DB::table('sampleuser')->where('id', 1)->delete();
     });
 });
