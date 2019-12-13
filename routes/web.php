@@ -51,7 +51,8 @@ Route::get('/finish', function () {
 //Group router
 
 Route::group(['prefix' => 'schema'], function () {
-    
+
+    //Handle by migration file
     Route::get('create-table', function() {
         Schema::create('SampleUser', function ($table) {
             $table->increments('id');
