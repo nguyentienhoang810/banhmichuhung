@@ -125,4 +125,25 @@ Route::group(['prefix' => 'query'], function () {
     Route::get('delete', function () {
         DB::table('sampleuser')->where('id', 1)->delete();
     });
+
+    //Lấy ra user với userid trong bản info
+    Route::get('join', function () {
+        $users = DB::table('sampleuser')->join('info', 'sampleuser.id', '=', 'info.users_id')->select('sampleuser.id', 'email', 'password')->get();
+        dd($users);
+    });
+
+    Route::get('where', function () {
+        $users = DB::table('sampleuser')->where('id', '=', 2)->get();
+        dd($users);
+    });
+
+    Route::get('where-and', function () {
+        $users = DB::table('sampleuser')->where('id', '>', 2)->where('id', '<', 4)->get();
+        dd($users);
+    });
+
+    Route::get('or-where', function () {
+        $users = DB::table('sampleuser')->where('id', '>', 2)->orwhere('id', '>', 4)->get();
+        dd($users);
+    });
 });
