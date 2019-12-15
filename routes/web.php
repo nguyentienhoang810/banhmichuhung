@@ -147,3 +147,16 @@ Route::group(['prefix' => 'query'], function () {
         dd($users);
     });
 });
+
+//Model
+Route::group(['prefix' => 'model'], function () {
+    Route::get('customer', function () {
+        $customer = App\Customer::all()->toarray();
+        dd($customer);
+    });
+
+    Route::get('find-customer', function () {
+        $customer = App\Customer::find(15)->toarray();
+        dd($customer);
+    });
+});
