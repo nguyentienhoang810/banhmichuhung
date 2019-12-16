@@ -1,13 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Slide;
 
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function getIndex() {
-        return view('page.trangchu');
+        $slides = Slide::All();
+        return view('page.trangchu', ['slides'=>$slides]);
+        // return view('page.trangchu', compact('slides'));
     }
 
     public function getProductType() {
