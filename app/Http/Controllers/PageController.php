@@ -32,8 +32,10 @@ class PageController extends Controller
         return view('page.product_type', compact('prodTypes', 'selectedType', 'prods', 'otherProds'));
     }
 
-    public function getProductDetail() {
-        return view('page.product_detail');
+    public function getProductDetail(Request $req) {
+        $prod = Product::where('id', $req->id)->first();
+        $sameProds = Product::where('id_type', $prod->id_type)->paginate(6, ['*'], 'page');
+        return view('page.product_detail', compact('prod', 'sameProds'));
     }
 
     public function getContact() {

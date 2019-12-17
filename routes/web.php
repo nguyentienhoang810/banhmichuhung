@@ -165,6 +165,6 @@ Route::group(['prefix' => 'model'], function () {
 Route::get('/', 'PageController@getIndex');
 Route::get('home', 'PageController@getIndex');
 Route::get('product-type/{type}', 'PageController@getProductType');
-Route::get('product-detail', 'PageController@getProductDetail');
+Route::get('product-detail/{id}', 'PageController@getProductDetail');
 Route::get('about', 'PageController@getAbout');
 Route::get('contact', 'PageController@getContact');
