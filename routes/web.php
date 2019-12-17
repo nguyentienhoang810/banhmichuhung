@@ -169,3 +169,7 @@ Route::get('product-detail/{id}', 'PageController@getProductDetail');
 Route::get('about', 'PageController@getAbout');
 Route::get('contact', 'PageController@getContact');
 Route::get('checkout', 'PageController@checkout');
+Route::get('add-to-cart/{id}', 'PageController@getAddToCart');
+Route::get('deleteSession', function () {
+    Session::flush();
+});

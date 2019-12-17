@@ -17,15 +17,15 @@ class Cart
 	}
 
 	public function add($item, $id){
-		$giohang = ['qty'=>0, 'price' => $item->unit_price, 'item' => $item];
+		$newItem = ['qty'=>0, 'price' => $item->unit_price, 'item' => $item];
 		if($this->items){
 			if(array_key_exists($id, $this->items)){
-				$giohang = $this->items[$id];
+				$newItem = $this->items[$id];
 			}
 		}
-		$giohang['qty']++;
-		$giohang['price'] = $item->unit_price * $giohang['qty'];
-		$this->items[$id] = $giohang;
+		$newItem['qty']++;
+		$newItem['price'] = $item->unit_price * $newItem['qty'];
+		$this->items[$id] = $newItem;
 		$this->totalQty++;
 		$this->totalPrice += $item->unit_price;
 	}

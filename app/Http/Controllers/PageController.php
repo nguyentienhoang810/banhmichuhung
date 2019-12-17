@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Slide;
 use App\Product;
 use App\ProductType;
+use App\Cart;
+use Session;
 
 use Illuminate\Http\Request;
 
@@ -36,6 +38,15 @@ class PageController extends Controller
         $prod = Product::where('id', $req->id)->first();
         $sameProds = Product::where('id_type', $prod->id_type)->paginate(6, ['*'], 'page');
         return view('page.product_detail', compact('prod', 'sameProds'));
+    }
+
+    public function getAddToCart($id) {
+        $cartProd = Product::find($id);
+        $currentCart = Session('cart') ? Session::get('cart') : null;
+        $newCart = new Cart($currentCart);
+        $newCart->add($cartProd, $id);
+        Session::put('cart', $newCart);
+        return redirect()->back();
     }
 
     public function getContact() {
