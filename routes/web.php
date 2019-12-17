@@ -168,3 +168,4 @@ Route::get('product-type/{type}', 'PageController@getProductType');
 Route::get('product-detail/{id}', 'PageController@getProductDetail');
 Route::get('about', 'PageController@getAbout');
 Route::get('contact', 'PageController@getContact');
+Route::get('checkout', 'PageController@checkout');

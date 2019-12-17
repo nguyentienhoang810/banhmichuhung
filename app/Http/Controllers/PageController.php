@@ -45,4 +45,8 @@ class PageController extends Controller
     public function getAbout() {
         return view('page.about');
     }
+
+    public function checkout() {
+        return view('page.checkout');
+    }
 }
