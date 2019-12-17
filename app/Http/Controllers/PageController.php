@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Slide;
 use App\Product;
+use App\ProductType;
 
 use Illuminate\Http\Request;
 
@@ -22,8 +23,13 @@ class PageController extends Controller
         return view('page.trangchu', compact('slides', 'newProducts', 'promotionProducts'));
     }
 
-    public function getProductType() {
-        return view('page.product_type');
+    public function getProductType($type) {
+        // $prodType = ProductType::where('id', $type)->get();
+        $prodTypes = ProductType::all();
+        $selectedType = $prodTypes[$type - 1];
+        $prods = Product::where('id_type', $type)->paginate(6, ['*'], 'pag');
+        $otherProds = Product::where('id_type', '<>', $type)->paginate(3, ['*'], 'page');
+        return view('page.product_type', compact('prodTypes', 'selectedType', 'prods', 'otherProds'));
     }
 
     public function getProductDetail() {

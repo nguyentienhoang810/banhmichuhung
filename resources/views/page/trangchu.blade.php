@@ -30,7 +30,7 @@
                     <div class="beta-products-list">
                         <h4>New Products</h4>
                         <div class="beta-products-details">
-                            <p class="pull-left">{{  count($newProducts)  }} sản phẩm mới</p>
+                            <p class="pull-left">{{  $newProducts->total()  }} sản phẩm mới</p>
                             <div class="clearfix"></div>
                         </div>
 
@@ -80,7 +80,7 @@
                     <div class="beta-products-list">
                         <h4>Promotion Products</h4>
                         <div class="beta-products-details">
-                            <p class="pull-left">{{ count($promotionProducts) }} Sản phẩm</p>
+                            <p class="pull-left">{{ $promotionProducts->total() }} Sản phẩm</p>
                             <div class="clearfix"></div>
                         </div>
                         <div class="row">

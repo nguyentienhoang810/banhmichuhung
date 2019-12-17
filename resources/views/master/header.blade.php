@@ -92,10 +92,10 @@
             <nav class="main-menu">
                 <ul class="l-inline ov">
                     <li><a href="home">Trang chủ</a></li>
-                    <li><a href="product-type">Loại Sản phẩm</a>
+                    <li><a>Loại Sản phẩm</a>
                         <ul class="sub-menu">
                             @foreach ($prodTypes as $prodType)
-                                <li><a href="product_type.html">{{ $prodType->name }}</a></li>
+                            <li><a href="product-type/{{ $prodType->id }}">{{ $prodType->name }}</a></li>
                             @endforeach
                         </ul>
                     </li>

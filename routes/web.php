@@ -164,6 +164,7 @@ Route::group(['prefix' => 'model'], function () {
 //Khoapham training
 Route::get('/', 'PageController@getIndex');
 Route::get('home', 'PageController@getIndex');
-Route::get('product-type', 'PageController@getProductType');
+Route::get('product-type/{type}', 'PageController@getProductType');
+// Route::get('product-type', 'PageController@getProductType');
 Route::get('product-detail', 'PageController@getProductDetail');
 Route::get('contact', 'PageController@getContact');
