@@ -99,7 +99,7 @@
                             @endforeach
                         </ul>
                     </li>
-                    <li><a href="about.html">Giới thiệu</a></li>
+                    <li><a href="about">Giới thiệu</a></li>
                     <li><a href="contact">Liên hệ</a></li>
                 </ul>
                 <div class="clearfix"></div>
