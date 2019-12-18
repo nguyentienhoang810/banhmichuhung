@@ -42,10 +42,22 @@ class PageController extends Controller
 
     public function getAddToCart($id) {
         $cartProd = Product::find($id);
-        $currentCart = Session('cart') ? Session::get('cart') : null;
+        $currentCart = Session::has('cart') ? Session::get('cart') : null;
         $newCart = new Cart($currentCart);
         $newCart->add($cartProd, $id);
         Session::put('cart', $newCart);
+        return redirect()->back();
+    }
+
+    public function deleteCartProd($id) {
+        $currentCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($currentCart);
+        $cart->removeItem($id);
+        if(count($cart->items) > 0){
+            Session::put('cart', $cart);
+        } else {
+            Session::forget('cart');
+        }
         return redirect()->back();
     }
 

@@ -32,32 +32,6 @@
                 </div>
 
                 <div class="beta-comp">
-                    {{-- <div class="cart">
-                        <div class="beta-select">
-                            <i class="fa fa-shopping-cart"></i> Giỏ hàng (Trống) <i class="fa fa-chevron-down"></i>
-                        </div>
-                        <div class="beta-dropdown cart-body">
-                            <div class="cart-item">
-                                <div class="media">
-                                    <a class="pull-left" href="#"><img src="assets/dest/images/products/cart/1.png" alt=""></a>
-                                    <div class="media-body">
-                                        <span class="cart-item-title">Sample Woman Top</span>
-                                        <span class="cart-item-options">Size: XS; Colar: Navy</span>
-                                        <span class="cart-item-amount">1*<span>$49.50</span></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cart-caption">
-                                <div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">$34.55</span></div>
-                                <div class="clearfix"></div>
-
-                                <div class="center">
-                                    <div class="space10">&nbsp;</div>
-                                    <a href="checkout.html" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- .cart --> --}}
                     <div class="cart">
                         @if (Session::has('cart'))
                         <div class="beta-select">
@@ -68,6 +42,7 @@
                         <div class="beta-dropdown cart-body">
                             @foreach ($cartItems as $cartItem)
                             <div class="cart-item">
+                                <a class="cart-item-delete" href="delete/{{ $cartItem['item']->id }}"><i class="fa fa-times"></i></a>
                                 <div class="media">
                                     <a class="pull-left" href="#"><img src="public/source/image/product/{{ $cartItem['item']['image'] }}" alt=""></a>
                                     <div class="media-body">

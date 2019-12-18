@@ -173,3 +173,4 @@ Route::get('add-to-cart/{id}', 'PageController@getAddToCart');
 Route::get('deleteSession', function () {
     Session::flush();
 });
+Route::get('delete/{id}', 'PageController@deleteCartProd');
