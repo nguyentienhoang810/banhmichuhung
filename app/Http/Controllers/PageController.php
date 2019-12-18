@@ -2,14 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Slide;
+use App\User;
 use App\Product;
-use App\ProductType;
-use App\Cart;
-use App\Customer;
-use App\Bill;
-use App\BillDetail;
-use Session;
-
+use Hash;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -32,41 +27,34 @@ class PageController extends Controller
         return view('page.register');
     }
 
-    public function getProductType($type) {
-        // $prodType = ProductType::where('id', $type)->get();
-        $prodTypes = ProductType::all();
-        $selectedType = $prodTypes[$type - 1];
-        $prods = Product::where('id_type', $type)->paginate(6, ['*'], 'pag');
-        $otherProds = Product::where('id_type', '<>', $type)->paginate(3, ['*'], 'page');
-        return view('page.product_type', compact('prodTypes', 'selectedType', 'prods', 'otherProds'));
-    }
-
-    public function getProductDetail(Request $req) {
-        $prod = Product::where('id', $req->id)->first();
-        $sameProds = Product::where('id_type', $prod->id_type)->paginate(6, ['*'], 'page');
-        return view('page.product_detail', compact('prod', 'sameProds'));
-    }
-
-    public function getAddToCart($id) {
-        $cartProd = Product::find($id);
-        $currentCart = Session::has('cart') ? Session::get('cart') : null;
-        $newCart = new Cart($currentCart);
-        $newCart->add($cartProd, $id);
-        Session::put('cart', $newCart);
+    public function postRegister(Request $req) {
+        $this->validate(
+            [
+                'email'=>'required|email|unique:users,email',
+                'password'=>'required|min:6|',
+                'confirm_password'=>'required|same:password',
+                'fullname'=>'required'
+            ],[
+                'email.required'=>'メールアドレスを入力してください',
+                'email.email'=>'メールアドレスを正しく入力してください',
+                'email.unique'=>'このメールアドレスは既に登録されました',
+                'password.required'=>'パスワードは必須',
+                'password.min'=>'パスワードは6文字以上',
+                'confirm_password.required'=>'入力必須',
+                'confirm_password.same'=>'パスワードと同じのは必須',
+                'fullname.required'=>'入力必須'
+            ]);
+        $user = new User();
+        $user->full_name = $req->fullname;
+        $user->email = $req->email;
+        $user->password = Hash::make($req->password);
+        $user->phone = $req->phone;
+        $user->address = $req->address;
+        $user->save();
         return redirect()->back();
     }
 
-    public function deleteCartProd($id) {
-        $currentCart = Session::has('cart') ? Session::get('cart') : null;
-        $cart = new Cart($currentCart);
-        $cart->removeItem($id);
-        if(count($cart->items) > 0){
-            Session::put('cart', $cart);
-        } else {
-            Session::forget('cart');
-        }
-        return redirect()->back();
-    }
+    
 
     public function getContact() {
         return view('page.contact');
@@ -74,56 +62,5 @@ class PageController extends Controller
 
     public function getAbout() {
         return view('page.about');
-    }
-
-    public function checkout() {
-        if (Session::has('cart')) {
-            $cart = Session::get('cart');
-            $cartItems = $cart->items;
-            $totalQty = $cart->totalQty;
-            $totalPrice = $cart->totalPrice;
-            return view('page.checkout', compact('cartItems', 'totalQty', 'totalPrice'));
-        }
-        $cartItems = [];
-        $totalQty = 0;
-        $totalPrice = 0;
-        return view('page.checkout', compact('cartItems', 'totalQty', 'totalPrice'));
-    }
-
-    public function postCheckout(Request $req) {
-        $cart = Session::get('cart');
-
-        $customer = new Customer;
-        $customer->name = $req->name;
-        $customer->gender = $req->gender;
-        $customer->email = $req->email;
-        $customer->address = $req->address;
-        $customer->phone_number = $req->phone_number;
-        $customer->note = $req->note;
-        $customer->save();
-
-        $bill = new Bill;
-        $bill->id_customer = $customer->id;
-        $bill->date_order = date('Y-m-d');
-        $bill->total = $cart->totalPrice;
-        $bill->payment = $req->payment_method;
-        $bill->note = $req->note;
-        $bill->save();
-
-        foreach ($cart->items as $item) {
-            $billDetail = new BillDetail;
-            $billDetail->id_bill = $bill->id;
-            $billDetail->id_product = $item['item']->id;
-            $billDetail->quantity = $item['qty'];
-            if ($item['item']->promotion_price == 0) {
-                $billDetail->unit_price = $item['item']->unit_price;
-            } else {
-                $billDetail->unit_price = $item['item']->promotion_price;
-            }
-            $billDetail->save();
-        }
-
-        Session::forget('cart');
-        return redirect()->back()->with('alert', 'order successful');
     }
 }

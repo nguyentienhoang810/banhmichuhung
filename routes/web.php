@@ -167,12 +167,19 @@ Route::get('deleteSession', function () {
 });
 Route::get('/', 'PageController@getIndex');
 Route::get('home', 'PageController@getIndex');
-Route::get('register', 'PageController@getRegister');
-Route::get('product-type/{type}', 'PageController@getProductType');
-Route::get('product-detail/{id}', 'PageController@getProductDetail');
 Route::get('about', 'PageController@getAbout');
 Route::get('contact', 'PageController@getContact');
-Route::get('add-to-cart/{id}', 'PageController@getAddToCart');
-Route::get('delete/{id}', 'PageController@deleteCartProd');
-Route::get('checkout', 'PageController@checkout');
-Route::post('checkout', 'PageController@postCheckout');
+
+//UserController
+Route::get('register', 'PageController@getRegister');
+Route::post('register', 'PageController@postRegister');
+
+//Product controller
+Route::get('product-type/{type}', 'ProductController@getProductType');
+Route::get('product-detail/{id}', 'ProductController@getProductDetail');
+
+//Cart controller
+Route::get('add-to-cart/{id}', 'CartController@getAddToCart');
+Route::get('delete/{id}', 'CartController@deleteCartProd');
+Route::get('checkout', 'CartController@checkout');
+Route::post('checkout', 'CartController@postCheckout');
