@@ -28,6 +28,10 @@ class PageController extends Controller
         return view('page.trangchu', compact('slides', 'newProducts', 'promotionProducts'));
     }
 
+    public function getRegister() {
+        return view('page.register');
+    }
+
     public function getProductType($type) {
         // $prodType = ProductType::where('id', $type)->get();
         $prodTypes = ProductType::all();
@@ -118,7 +122,7 @@ class PageController extends Controller
             }
             $billDetail->save();
         }
-        
+
         Session::forget('cart');
         return redirect()->back()->with('alert', 'order successful');
     }

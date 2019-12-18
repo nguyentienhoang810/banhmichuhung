@@ -167,6 +167,7 @@ Route::get('deleteSession', function () {
 });
 Route::get('/', 'PageController@getIndex');
 Route::get('home', 'PageController@getIndex');
+Route::get('register', 'PageController@getRegister');
 Route::get('product-type/{type}', 'PageController@getProductType');
 Route::get('product-detail/{id}', 'PageController@getProductDetail');
 Route::get('about', 'PageController@getAbout');
