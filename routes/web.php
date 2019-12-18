@@ -171,8 +171,8 @@ Route::get('about', 'PageController@getAbout');
 Route::get('contact', 'PageController@getContact');
 
 //UserController
-Route::get('register', 'PageController@getRegister');
-Route::post('register', 'PageController@postRegister');
+Route::get('register', 'UserController@getRegister');
+Route::post('register', 'UserController@postRegister');
 
 //Product controller
 Route::get('product-type/{type}', 'ProductController@getProductType');
