@@ -162,6 +162,9 @@ Route::group(['prefix' => 'model'], function () {
 });
 
 //Khoapham training
+Route::get('deleteSession', function () {
+    Session::flush();
+});
 Route::get('/', 'PageController@getIndex');
 Route::get('home', 'PageController@getIndex');
 Route::get('product-type/{type}', 'PageController@getProductType');
@@ -170,7 +173,5 @@ Route::get('about', 'PageController@getAbout');
 Route::get('contact', 'PageController@getContact');
 Route::get('checkout', 'PageController@checkout');
 Route::get('add-to-cart/{id}', 'PageController@getAddToCart');
-Route::get('deleteSession', function () {
-    Session::flush();
-});
 Route::get('delete/{id}', 'PageController@deleteCartProd');
+Route::post('checkout', 'PageController@checkout');

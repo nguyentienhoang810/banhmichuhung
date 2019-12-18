@@ -70,6 +70,10 @@ class PageController extends Controller
     }
 
     public function checkout() {
-        return view('page.checkout');
+        $cart = Session::get('cart');
+        $cartItems = $cart->items;
+        $totalQty = $cart->totalQty;
+        $totalPrice = $cart->totalPrice;
+        return view('page.checkout', compact('cartItems', 'totalQty', 'totalPrice'));
     }
 }

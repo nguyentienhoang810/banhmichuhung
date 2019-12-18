@@ -61,23 +61,23 @@
                         <div class="your-order-body" style="padding: 0px 10px">
                             <div class="your-order-item">
                                 <div>
-                                <!--  one item	 -->
+                                    @foreach ($cartItems as $cartItem)
+                                    <!--  one item	 -->
                                     <div class="media">
-                                        <img width="25%" src="assets/dest/images/shoping1.jpg" alt="" class="pull-left">
+                                        <img width="25%" src="public/source/image/product/{{ $cartItem['item']->image }}" alt="" class="pull-left">
                                         <div class="media-body">
-                                            <p class="font-large">Men's Belt</p>
-                                            <span class="color-gray your-order-info">Color: Red</span>
-                                            <span class="color-gray your-order-info">Size: M</span>
-                                            <span class="color-gray your-order-info">Qty: 1</span>
+                                            <p class="font-large">{{ $cartItem['item']->name}}</p>
+                                            <span class="color-gray your-order-info">Số Lượng: {{ $cartItem['qty'] }}</span>
                                         </div>
                                     </div>
-                                <!-- end one item -->
+                                    <!-- end one item -->
+                                    @endforeach
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="your-order-item">
                                 <div class="pull-left"><p class="your-order-f18">Tổng tiền:</p></div>
-                                <div class="pull-right"><h5 class="color-black">$235.00</h5></div>
+                                <div class="pull-right"><h5 class="color-black">{{ $totalPrice }}</h5></div>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
