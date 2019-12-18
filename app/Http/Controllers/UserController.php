@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 use Session;
 use Hash;
 
@@ -40,5 +41,37 @@ class UserController extends Controller
         $user->save();
         Session::flash('register_success', "REGISTER SUCCESSFUL");
         return redirect()->back();
+    }
+
+    public function getLogin() {
+        return view('page.login');
+    }
+
+    public function postLogin(Request $req) {
+        $req->validate(
+            [
+                'email'=>'required|email',
+                'password'=>'required|min:6|',
+            ],
+            [
+                'email.required'=>'メールアドレスを入力してください',
+                'email.email'=>'メールアドレスを正しく入力してください',
+                'password.required'=>'パスワードは必須',
+                'password.min'=>'パスワードは6文字以上',
+            ]);
+        
+        $credentials = array('email'=>$req->email, 'password'=>$req->password);
+        if(Auth::attempt($credentials)) {
+            Session::flash('login_status', true);
+            return redirect()->back();
+        } else {
+            Session::flash('login_status', false);
+            return redirect()->back();
+        }
+    }
+
+    public function postLogout() {
+        Auth::logout();
+        return redirect('home');
     }
 }

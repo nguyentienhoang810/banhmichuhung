@@ -173,6 +173,9 @@ Route::get('contact', 'PageController@getContact');
 //UserController
 Route::get('register', 'UserController@getRegister');
 Route::post('register', 'UserController@postRegister');
+Route::get('login', 'UserController@getLogin');
+Route::post('login', 'UserController@postLogin');
+Route::get('logout','UserController@postLogout');
 
 //Product controller
 Route::get('product-type/{type}', 'ProductController@getProductType');
