@@ -161,6 +161,10 @@ Route::group(['prefix' => 'model'], function () {
     });
 });
 
+
+
+
+
 //Khoapham training
 Route::get('deleteSession', function () {
     Session::flush();
@@ -169,6 +173,7 @@ Route::get('/', 'PageController@getIndex');
 Route::get('home', 'PageController@getIndex');
 Route::get('about', 'PageController@getAbout');
 Route::get('contact', 'PageController@getContact');
+Route::get('search', 'PageController@getSearch');
 
 //UserController
 Route::get('register', 'UserController@getRegister');

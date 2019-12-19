@@ -61,6 +61,7 @@ class UserController extends Controller
             ]);
         
         $credentials = array('email'=>$req->email, 'password'=>$req->password);
+        
         if(Auth::attempt($credentials)) {
             Session::flash('login_status', true);
             return redirect()->back();

@@ -28,4 +28,11 @@ class PageController extends Controller
     public function getAbout() {
         return view('page.about');
     }
+
+    public function getSearch(Request $req) {
+        $prods = Product::where('name', 'like', '%'.$req->search_key.'%')
+                        ->orWhere('unit_price', $req->search_key)
+                        ->paginate(12, ['*'], 'page');
+        return view('page.search', compact('prods'));
+    }
 }
