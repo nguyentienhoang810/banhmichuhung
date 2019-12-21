@@ -3,6 +3,9 @@ namespace App\Modules;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
+use App\Modules\Models\ProductType;
+use App\Modules\Models\Cart;
+use Session;
 
 class ModuleServiceProvider extends RouteServiceProvider{
 
@@ -17,6 +20,21 @@ class ModuleServiceProvider extends RouteServiceProvider{
         $this->setNamespace();
 
         parent::boot();
+
+        view()->composer('master.header', function ($view) {
+            $productTypes = ProductType::all();
+            if(Session::get('cart')) {
+                $cart = Session::get('cart');
+                $view->with([
+                    'prodTypes'=>$productTypes, 
+                    'cartItems'=>$cart->items,
+                    'totalQty'=>$cart->totalQty,
+                    'totalPrice'=>$cart->totalPrice
+                    ]);
+            } else {
+                $view->with(['prodTypes'=>$productTypes]);
+            }
+        });
     }
 
     /**

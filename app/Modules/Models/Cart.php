@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Modules\Models;
 
 class Cart
 {
