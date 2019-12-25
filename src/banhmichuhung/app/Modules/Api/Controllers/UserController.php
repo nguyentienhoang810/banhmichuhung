@@ -3,7 +3,6 @@ namespace App\Modules\Api\Controllers;
 
 use Illuminate\Http\Request;
 use App\Modules\Models\User;
-use Auth;
 use Hash;
 
 
@@ -16,6 +15,24 @@ class UserController extends Controller{
     public function getAllUser() {
         $user = User::all();
         return response()->json($user, 200);
+    }
+
+    public function me() {
+        try {
+            $user = auth()->userOrFail();
+        } catch (\Tymon\JWTAuth\Exceptions\UserNotDefinedException $e) {
+            return response()->json(['error' => $e->getMessage()]);
+        }
+        return response()->json(['userinfo' => $user]);
+    }
+
+    public function refresh() {
+        try {
+            $newToken = auth()->refresh();
+        } catch (\Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
+            return response()->json(['error' => $e->getMessage()], 401);
+        }
+        return response()->json(['token' => $newToken]);
     }
 
     public function register(Request $req) {
@@ -43,28 +60,21 @@ class UserController extends Controller{
     }
 
     public function login(Request $req) {
-        $credentials = [
-            "email"=>$req->email,
-            "password"=>$req->password
-        ];
+        $creds = $req->only(['email', 'password']);
+        $token = auth()->attempt($creds);
+        if (!$token) {
+            return response()->json(['error'=>'incorrect email or password'], 500);
+        }
+        return $this->respondWithToken($token);
+    }
 
-        $loginSuccess = [
-            "message"=>"login success"
-        ];
-
-        $loginFailed = [
-            "message"=>"login failed"
-        ];
-
-        // if(Auth::attempt($credentials)) {
-        //     //login success
-        //     return response()->json($credentials, 200);
-        // } else {
-        //     //login failed
-        //     return response()->json($credentials, 500);
-        // }
-
-        return response()->json($credentials, 200);
+    protected function respondWithToken($token)
+    {
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+            'expires_in' => auth()->factory()->getTTL() * 60
+        ]);
     }
 
     public function logout(Request $req) {
