@@ -3,8 +3,8 @@ namespace App\Modules\Api\Controllers;
 
 use Illuminate\Http\Request;
 use App\Modules\Models\User;
+use App\Modules\Models\Bill;
 use Hash;
-
 
 class UserController extends Controller{
     
@@ -26,6 +26,17 @@ class UserController extends Controller{
         return response()->json(['userinfo' => $user]);
     }
 
+    public function getBill() {
+        try {
+            $user = auth()->userOrFail(); //userOrFail() sẽ đáp ra 1 mess lỗi trong try catch
+            $bills = Bill::where('user_id', $user->id)->get();
+            return response()->json(['bills' => $bills]);
+        } catch (\Tymon\JWTAuth\Exceptions\UserNotDefinedException $e) {
+            return response()->json(['error' => $e->getMessage()], 401);
+        }
+    }
+
+    //refresh token
     public function refresh() {
         try {
             $newToken = auth()->refresh();

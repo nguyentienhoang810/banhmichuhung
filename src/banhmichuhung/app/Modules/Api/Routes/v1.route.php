@@ -12,5 +12,6 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('all', 'UserController@getAllUser');
     Route::get('me', 'UserController@me');
     Route::post('register', 'UserController@register');
-    Route::get('refresh', 'UserController@refresh');
+    Route::get('refresh', 'UserController@refresh'); //refresh token
+    Route::get('bill', 'UserController@getBill');
 });
