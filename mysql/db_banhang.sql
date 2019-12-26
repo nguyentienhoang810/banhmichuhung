@@ -1,8 +1,9 @@
--- MySQL dump 10.13  Distrib 8.0.17, for osx10.14 (x86_64)
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+-- MySQL dump 10.13  Distrib 8.0.18, for Linux (x86_64)
 --
--- Host: localhost    Database: db_banhang
+-- Host: localhost    Database: db_banhang_docker
 -- ------------------------------------------------------
--- Server version	8.0.17
+-- Server version	8.0.18
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -32,7 +33,7 @@ CREATE TABLE `bill_detail` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `bill_detail_ibfk_2` (`id_product`)
-) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +42,7 @@ CREATE TABLE `bill_detail` (
 
 LOCK TABLES `bill_detail` WRITE;
 /*!40000 ALTER TABLE `bill_detail` DISABLE KEYS */;
-INSERT INTO `bill_detail` VALUES (18,15,62,5,220000,'2017-03-24 07:14:32','2017-03-24 07:14:32'),(17,14,2,1,160000,'2017-03-23 04:46:05','2017-03-23 04:46:05'),(16,13,60,1,200000,'2017-03-21 07:29:31','2017-03-21 07:29:31'),(15,13,59,1,200000,'2017-03-21 07:29:31','2017-03-21 07:29:31'),(14,12,60,2,200000,'2017-03-21 07:20:07','2017-03-21 07:20:07'),(13,12,61,1,120000,'2017-03-21 07:20:07','2017-03-21 07:20:07'),(12,11,61,1,120000,'2017-03-21 07:16:09','2017-03-21 07:16:09'),(11,11,57,2,150000,'2017-03-21 07:16:09','2017-03-21 07:16:09'),(19,16,2,2,160000,'2019-12-17 23:10:51','2019-12-17 23:10:51'),(20,16,1,1,120000,'2019-12-17 23:10:51','2019-12-17 23:10:51'),(21,16,8,1,150000,'2019-12-17 23:10:51','2019-12-17 23:10:51'),(22,17,1,1,120000,'2019-12-17 23:15:27','2019-12-17 23:15:27'),(23,17,7,1,160000,'2019-12-17 23:15:27','2019-12-17 23:15:27'),(24,18,7,1,160000,'2019-12-17 23:16:42','2019-12-17 23:16:42'),(25,18,6,1,180000,'2019-12-17 23:16:42','2019-12-17 23:16:42'),(26,19,1,1,120000,'2019-12-17 23:20:13','2019-12-17 23:20:13'),(27,19,9,1,150000,'2019-12-17 23:20:13','2019-12-17 23:20:13'),(28,20,2,37,160000,'2019-12-18 00:02:43','2019-12-18 00:02:43'),(29,20,13,1,280000,'2019-12-18 00:02:43','2019-12-18 00:02:43');
+INSERT INTO `bill_detail` VALUES (18,15,62,5,220000,'2017-03-24 07:14:32','2017-03-24 07:14:32'),(17,14,2,1,160000,'2017-03-23 04:46:05','2017-03-23 04:46:05'),(16,13,60,1,200000,'2017-03-21 07:29:31','2017-03-21 07:29:31'),(15,13,59,1,200000,'2017-03-21 07:29:31','2017-03-21 07:29:31'),(14,12,60,2,200000,'2017-03-21 07:20:07','2017-03-21 07:20:07'),(13,12,61,1,120000,'2017-03-21 07:20:07','2017-03-21 07:20:07'),(12,11,61,1,120000,'2017-03-21 07:16:09','2017-03-21 07:16:09'),(11,11,57,2,150000,'2017-03-21 07:16:09','2017-03-21 07:16:09'),(19,16,2,2,160000,'2019-12-17 23:10:51','2019-12-17 23:10:51'),(20,16,1,1,120000,'2019-12-17 23:10:51','2019-12-17 23:10:51'),(21,16,8,1,150000,'2019-12-17 23:10:51','2019-12-17 23:10:51'),(22,17,1,1,120000,'2019-12-17 23:15:27','2019-12-17 23:15:27'),(23,17,7,1,160000,'2019-12-17 23:15:27','2019-12-17 23:15:27'),(24,18,7,1,160000,'2019-12-17 23:16:42','2019-12-17 23:16:42'),(25,18,6,1,180000,'2019-12-17 23:16:42','2019-12-17 23:16:42'),(26,19,1,1,120000,'2019-12-17 23:20:13','2019-12-17 23:20:13'),(27,19,9,1,150000,'2019-12-17 23:20:13','2019-12-17 23:20:13'),(28,20,2,37,160000,'2019-12-18 00:02:43','2019-12-18 00:02:43'),(29,20,13,1,280000,'2019-12-18 00:02:43','2019-12-18 00:02:43'),(30,21,2,1,160000,'2019-12-26 06:48:17','2019-12-26 06:48:17');
 /*!40000 ALTER TABLE `bill_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -61,9 +62,11 @@ CREATE TABLE `bills` (
   `note` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `bills_ibfk_1` (`id_customer`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+  KEY `bills_ibfk_1` (`id_customer`),
+  KEY `bills_user_id_foreign` (`user_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,7 +75,7 @@ CREATE TABLE `bills` (
 
 LOCK TABLES `bills` WRITE;
 /*!40000 ALTER TABLE `bills` DISABLE KEYS */;
-INSERT INTO `bills` VALUES (14,14,'2017-03-23',160000,'COD','k','2017-03-23 04:46:05','2017-03-23 04:46:05'),(13,13,'2017-03-21',400000,'ATM','Vui lòng giao hàng trước 5h','2017-03-21 07:29:31','2017-03-21 07:29:31'),(12,12,'2017-03-21',520000,'COD','Vui lòng chuyển đúng hạn','2017-03-21 07:20:07','2017-03-21 07:20:07'),(11,11,'2017-03-21',420000,'COD','không chú','2017-03-21 07:16:09','2017-03-21 07:16:09'),(15,15,'2017-03-24',220000,'COD','e','2017-03-24 07:14:32','2017-03-24 07:14:32'),(16,16,'2019-12-18',590000,'COD','123123123','2019-12-17 23:10:51','2019-12-17 23:10:51'),(17,17,'2019-12-18',280000,'COD','hahahahahahaaa','2019-12-17 23:15:27','2019-12-17 23:15:27'),(18,18,'2019-12-18',340000,'ATM','速く出せ','2019-12-17 23:16:42','2019-12-17 23:16:42'),(19,19,'2019-12-18',270000,'COD','221323','2019-12-17 23:20:13','2019-12-17 23:20:13'),(20,20,'2019-12-18',6200000,'COD','wwwwwwwwww','2019-12-18 00:02:43','2019-12-18 00:02:43');
+INSERT INTO `bills` VALUES (14,14,'2017-03-23',160000,'COD','k','2019-12-26 08:05:00','2019-12-26 08:05:00',10),(13,13,'2017-03-21',400000,'ATM','Vui lòng giao hàng trước 5h','2019-12-26 08:05:00','2019-12-26 08:05:00',10),(12,12,'2017-03-21',520000,'COD','Vui lòng chuyển đúng hạn','2019-12-26 08:05:00','2019-12-26 08:05:00',10),(11,11,'2017-03-21',420000,'COD','không chú','2019-12-26 08:05:00','2019-12-26 08:05:00',10),(15,15,'2017-03-24',220000,'COD','e','2019-12-26 08:05:00','2019-12-26 08:05:00',10),(16,16,'2019-12-18',590000,'COD','123123123','2019-12-26 08:05:00','2019-12-26 08:05:00',10),(17,17,'2019-12-18',280000,'COD','hahahahahahaaa','2019-12-26 08:05:00','2019-12-26 08:05:00',10),(18,18,'2019-12-18',340000,'ATM','速く出せ','2019-12-26 08:05:00','2019-12-26 08:05:00',10),(19,19,'2019-12-18',270000,'COD','221323','2019-12-26 08:05:00','2019-12-26 08:05:00',10),(20,20,'2019-12-18',6200000,'COD','wwwwwwwwww','2019-12-26 08:05:00','2019-12-26 08:05:00',10),(21,21,'2019-12-26',160000,'COD','2222222222222','2019-12-26 08:05:00','2019-12-26 08:05:00',10);
 /*!40000 ALTER TABLE `bills` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,7 +97,7 @@ CREATE TABLE `customer` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +106,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (15,'ê','Nữ','huongnguyen@gmail.com','e','e','e','2017-03-24 07:14:32','2017-03-24 07:14:32'),(14,'hhh','nam','huongnguyen@gmail.com','Lê thị riêng','99999999999999999','k','2017-03-23 04:46:05','2017-03-23 04:46:05'),(13,'Hương Hương','Nữ','huongnguyenak96@gmail.com','Lê Thị Riêng, Quận 1','23456789','Vui lòng giao hàng trước 5h','2017-03-21 07:29:31','2017-03-21 07:29:31'),(12,'Khoa phạm','Nam','khoapham@gmail.com','Lê thị riêng','1234567890','Vui lòng chuyển đúng hạn','2017-03-21 07:20:07','2017-03-21 07:20:07'),(11,'Hương Hương','Nữ','huongnguyenak96@gmail.com','Lê Thị Riêng, Quận 1','234567890-','không chú','2017-03-21 07:16:09','2017-03-21 07:16:09'),(16,'Hoang Nguyen','nam','tsuyoshiyamanashi+shift@gmail.com','鷹番1-15-20 ハリーズプレイス 3B','9067451469','123123123','2019-12-17 23:10:51','2019-12-17 23:10:51'),(17,'Hoang Nguyen','nam','ptthuyen0109@gmail.com','鷹番1-15-20 ハリーズプレイス 3B','9067451469','hahahahahahaaa','2019-12-17 23:15:27','2019-12-17 23:15:27'),(18,'ホアン','nam','takemoto.teruyoshi@gmail.com','麻布台3-2-9, 第二エイルビル401','9067451469','速く出せ','2019-12-17 23:16:42','2019-12-17 23:16:42'),(19,'Hoang Nguyen','nam','uno.test@yopmail.com','鷹番1-15-20 ハリーズプレイス 3B','9067451469','221323','2019-12-17 23:20:13','2019-12-17 23:20:13'),(20,'Hoang Nguyen','nam','takemoto.teruyoshi@gmail.com','鷹番1-15-20 ハリーズプレイス 3B','9067451469','wwwwwwwwww','2019-12-18 00:02:43','2019-12-18 00:02:43');
+INSERT INTO `customer` VALUES (15,'ê','Nữ','huongnguyen@gmail.com','e','e','e','2017-03-24 07:14:32','2017-03-24 07:14:32'),(14,'hhh','nam','huongnguyen@gmail.com','Lê thị riêng','99999999999999999','k','2017-03-23 04:46:05','2017-03-23 04:46:05'),(13,'Hương Hương','Nữ','huongnguyenak96@gmail.com','Lê Thị Riêng, Quận 1','23456789','Vui lòng giao hàng trước 5h','2017-03-21 07:29:31','2017-03-21 07:29:31'),(12,'Khoa phạm','Nam','khoapham@gmail.com','Lê thị riêng','1234567890','Vui lòng chuyển đúng hạn','2017-03-21 07:20:07','2017-03-21 07:20:07'),(11,'Hương Hương','Nữ','huongnguyenak96@gmail.com','Lê Thị Riêng, Quận 1','234567890-','không chú','2017-03-21 07:16:09','2017-03-21 07:16:09'),(16,'Hoang Nguyen','nam','tsuyoshiyamanashi+shift@gmail.com','鷹番1-15-20 ハリーズプレイス 3B','9067451469','123123123','2019-12-17 23:10:51','2019-12-17 23:10:51'),(17,'Hoang Nguyen','nam','ptthuyen0109@gmail.com','鷹番1-15-20 ハリーズプレイス 3B','9067451469','hahahahahahaaa','2019-12-17 23:15:27','2019-12-17 23:15:27'),(18,'ホアン','nam','takemoto.teruyoshi@gmail.com','麻布台3-2-9, 第二エイルビル401','9067451469','速く出せ','2019-12-17 23:16:42','2019-12-17 23:16:42'),(19,'Hoang Nguyen','nam','uno.test@yopmail.com','鷹番1-15-20 ハリーズプレイス 3B','9067451469','221323','2019-12-17 23:20:13','2019-12-17 23:20:13'),(20,'Hoang Nguyen','nam','takemoto.teruyoshi@gmail.com','鷹番1-15-20 ハリーズプレイス 3B','9067451469','wwwwwwwwww','2019-12-18 00:02:43','2019-12-18 00:02:43'),(21,'Hoang Nguyen','nam','nguyentienhoang810@gmail.com','鷹番1-15-20 ハリーズプレイス 3B','9067451469','2222222222222','2019-12-26 06:48:17','2019-12-26 06:48:17');
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,10 +119,10 @@ DROP TABLE IF EXISTS `migrations`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `migrations` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,7 +131,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'2019_12_13_051608_create_sampleuser_table',1),(2,'2019_12_13_052359_create_info_table',2),(3,'2019_12_13_053221_add_column',3);
+INSERT INTO `migrations` VALUES (1,'2019_12_13_051608_create_sampleuser_table',1),(2,'2019_12_13_052359_create_info_table',2),(3,'2019_12_13_053221_add_column',3),(4,'2019_12_26_070522_edit_bills_table',4);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -267,7 +270,7 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -276,7 +279,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (6,'Hương Hương','huonghuong08.php@gmail.com','$2y$10$rGY4KT6ZSMmLnxIbmTXrsu2xdgRxm8x0UTwCyYCAzrJ320kYheSRq','23456789','Hoàng Diệu 2',NULL,'2017-03-23 07:17:33','2017-03-23 07:17:33'),(7,'Hoang Nguyen','huonghuo222ng08.php@gmail.com','$2y$10$kqrs.pptVmm2NgSvjY8LEuuXGEwKI8NwzJm4XetqO0igVfjqO/iS6','9067451469','鷹番1-15-20 ハリーズプレイス 3B',NULL,'2019-12-18 00:31:49','2019-12-18 00:31:49'),(8,'Hoang Nguyen','huo2jdhng08.php@gmail.com','$2y$10$eTa5YARFzlNPzgOC8WjNZ.0kIA8zzkHsqueLBYfuuJ1Kfq.Oqe0iW','9067451469','鷹番1-15-20 ハリーズプレイス 3B',NULL,'2019-12-18 00:32:19','2019-12-18 00:32:19'),(9,'123123','12123@mail.com','$2y$10$TRemE73CoiGhKgyzh3KmT.m1DC3IkrD0dZFGRnlVkre23.Ja8CPGK','1231231','123123',NULL,'2019-12-18 00:37:11','2019-12-18 00:37:11'),(10,'admin name','admin@admin.com','$2y$10$sKWBx6wy/7IrRA4KGRB.R.SwBiud0TlIWY8bsq858Cbi1PO7KoAXC','123123123','address admin',NULL,'2019-12-18 01:10:27','2019-12-18 01:10:27');
+INSERT INTO `users` VALUES (6,'Hương Hương','huonghuong08.php@gmail.com','$2y$10$rGY4KT6ZSMmLnxIbmTXrsu2xdgRxm8x0UTwCyYCAzrJ320kYheSRq','23456789','Hoàng Diệu 2',NULL,'2017-03-23 07:17:33','2017-03-23 07:17:33'),(7,'Hoang Nguyen','huonghuo222ng08.php@gmail.com','$2y$10$kqrs.pptVmm2NgSvjY8LEuuXGEwKI8NwzJm4XetqO0igVfjqO/iS6','9067451469','鷹番1-15-20 ハリーズプレイス 3B',NULL,'2019-12-18 00:31:49','2019-12-18 00:31:49'),(8,'Hoang Nguyen','huo2jdhng08.php@gmail.com','$2y$10$eTa5YARFzlNPzgOC8WjNZ.0kIA8zzkHsqueLBYfuuJ1Kfq.Oqe0iW','9067451469','鷹番1-15-20 ハリーズプレイス 3B',NULL,'2019-12-18 00:32:19','2019-12-18 00:32:19'),(9,'123123','12123@mail.com','$2y$10$TRemE73CoiGhKgyzh3KmT.m1DC3IkrD0dZFGRnlVkre23.Ja8CPGK','1231231','123123',NULL,'2019-12-18 00:37:11','2019-12-18 00:37:11'),(10,'admin name','admin@admin.com','$2y$10$sKWBx6wy/7IrRA4KGRB.R.SwBiud0TlIWY8bsq858Cbi1PO7KoAXC','123123123','address admin',NULL,'2019-12-18 01:10:27','2019-12-18 01:10:27'),(11,'user ZERO','zero@mail.com','$2y$10$kq4P4bac9jxcwzIcDXDA7.Bh/5yNnx/LEiWScUR20LIf5yKJuKk9.','99999999','zero address',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -289,4 +292,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-21 16:15:26
+-- Dump completed on 2019-12-26  8:15:51

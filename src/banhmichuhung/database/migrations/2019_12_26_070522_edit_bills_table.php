@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumn extends Migration
+class EditBillsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddColumn extends Migration
      */
     public function up()
     {
-        Schema::table('sampleuser', function ($table) {
-            $table->string('new_col');
+        Schema::table('bills', function (Blueprint $table) {
+            $table->bigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

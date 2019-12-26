@@ -10,10 +10,10 @@ class Product extends Model
 
     public function product_type()
     {
-        return $this->belongsTo('App\ProductType', 'id_type', 'id');
+        return $this->belongsTo('App\Modules\Models\ProductType', 'id_type', 'id');
     }
 
     public function bill_detail() {
-        return $this->hasMany('App\BillDetail', 'id_product', 'id');
+        return $this->hasMany('App\Modules\Models\BillDetail', 'id_product', 'id');
     }
 }
