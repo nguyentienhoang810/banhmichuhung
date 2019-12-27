@@ -13,15 +13,20 @@ class UserController extends Controller{
     }
 
     public function getAllUser() {
-        $user = User::all();
-        return response()->json($user, 200);
+        try {
+            $user = auth()->userOrFail();
+            $users = User::all();
+        } catch (\Tymon\JWTAuth\Exceptions\UserNotDefinedException $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+        return response()->json($users, 200);
     }
 
     public function me() {
         try {
             $user = auth()->userOrFail();
         } catch (\Tymon\JWTAuth\Exceptions\UserNotDefinedException $e) {
-            return response()->json(['error' => $e->getMessage()]);
+            return response()->json(['error' => $e->getMessage()], 500);
         }
         return response()->json(['userinfo' => $user]);
     }
