@@ -1,3 +1,5 @@
-FROM php:7.3-apache
+FROM php:7.2-fpm-alpine
 
-docker run -d -p 9999:80 -v /Users/nguyentienhoang/Sites/PHP/banhmichuhung:/var/www/html --name banhmi-container phpapache2:v1
+WORKDIR /var/www
+
+RUN docker-php-ext-install pdo pdo_mysql
