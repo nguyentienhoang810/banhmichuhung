@@ -191,3 +191,6 @@
 // Route::get('delete/{id}', 'CartController@deleteCartProd');
 // Route::get('checkout', 'CartController@checkout');
 // Route::post('checkout', 'CartController@postCheckout');
+
+//DI
+Route::get('pay', 'PayOrderController@store');
