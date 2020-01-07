@@ -1,5 +1,4 @@
 <?php
-
 Route::get('deleteSession', function () {
     Session::flush();
 });
