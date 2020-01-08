@@ -31,3 +31,7 @@ initdb:
 exedb:
 	chmod 0775 mysql/exec-db.sh
 	zsh mysql/exec-db.sh
+
+.PHONY: backup-files
+backup-files:
+	docker-compose exec php php artisan backup:run --only-files
