@@ -11,7 +11,7 @@ use Hash;
 class UserController extends Controller
 {
     public function getRegister() {
-        return view('page.register');
+        return view('Frontend::page.register');
     }
 
     public function postRegister(Request $req) {
@@ -44,7 +44,7 @@ class UserController extends Controller
     }
 
     public function getLogin() {
-        return view('page.login');
+        return view('Frontend::page.login');
     }
 
     public function postLogin(Request $req) {

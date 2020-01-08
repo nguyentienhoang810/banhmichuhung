@@ -14,12 +14,12 @@ class ProductController extends Controller
         $selectedType = $prodTypes[$type - 1];
         $prods = Product::where('id_type', $type)->paginate(6, ['*'], 'pag');
         $otherProds = Product::where('id_type', '<>', $type)->paginate(3, ['*'], 'page');
-        return view('page.product_type', compact('prodTypes', 'selectedType', 'prods', 'otherProds'));
+        return view('Frontend::page.product_type', compact('prodTypes', 'selectedType', 'prods', 'otherProds'));
     }
 
     public function getProductDetail(Request $req) {
         $prod = Product::where('id', $req->id)->first();
         $sameProds = Product::where('id_type', $prod->id_type)->paginate(6, ['*'], 'page');
-        return view('page.product_detail', compact('prod', 'sameProds'));
+        return view('Frontend::page.product_detail', compact('prod', 'sameProds'));
     }
 }

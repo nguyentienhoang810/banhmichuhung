@@ -18,12 +18,12 @@ class CartController extends Controller
             $cartItems = $cart->items;
             $totalQty = $cart->totalQty;
             $totalPrice = $cart->totalPrice;
-            return view('page.checkout', compact('cartItems', 'totalQty', 'totalPrice'));
+            return view('Frontend::page.checkout', compact('cartItems', 'totalQty', 'totalPrice'));
         }
         $cartItems = [];
         $totalQty = 0;
         $totalPrice = 0;
-        return view('page.checkout', compact('cartItems', 'totalQty', 'totalPrice'));
+        return view('Frontend::page.checkout', compact('cartItems', 'totalQty', 'totalPrice'));
     }
 
     public function getAddToCart($id) {

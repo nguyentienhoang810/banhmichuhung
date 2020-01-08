@@ -19,21 +19,21 @@ class PageController extends Controller
         $newProducts = Product::where('new', 1)->paginate(4, ['*'], 'pag');
         $promotionProducts = Product::where('promotion_price', '<>', '0')->paginate(8, ['*'], 'page');
         // return view('page.trangchu', ['slides'=>$slides]);
-        return view('page.trangchu', compact('slides', 'newProducts', 'promotionProducts'));
+        return view('Frontend::page.trangchu', compact('slides', 'newProducts', 'promotionProducts'));
     }
 
     public function getContact() {
-        return view('page.contact');
+        return view('Frontend::page.contact');
     }
 
     public function getAbout() {
-        return view('page.about');
+        return view('Frontend::page.about');
     }
 
     public function getSearch(Request $req) {
         $prods = Product::where('name', 'like', '%'.$req->search_key.'%')
                         ->orWhere('unit_price', $req->search_key)
                         ->paginate(12, ['*'], 'page');
-        return view('page.search', compact('prods'));
+        return view('Frontend::page.search', compact('prods'));
     }
 }

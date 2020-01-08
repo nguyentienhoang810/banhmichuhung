@@ -110,7 +110,7 @@ class ModuleServiceProvider extends RouteServiceProvider{
         Route::middleware($middleware)
             ->namespace($this->namespace)
             ->group($route_file);
-        
+
         if(is_dir($view_dir)){
             $this->loadViewsFrom($view_dir, $mod['folder']);
         }
@@ -135,7 +135,7 @@ class ModuleServiceProvider extends RouteServiceProvider{
             ->prefix($mod['prefix_url'])
             ->namespace($this->namespace)
             ->group($route_file);
-        
+
         if(is_dir($view_dir)){
             $this->loadViewsFrom($view_dir, $mod['folder']);
         }
